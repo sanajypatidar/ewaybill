@@ -44,10 +44,10 @@ export class Ewaybilldata {
     vehicleType:string;
     itemList:[{
     productName:string;
-    productDesc:Wheat,
-    hsnCode:1001,
-    quantity:4,
-    qtyUnit:BOX,
+    productDesc:string;
+    hsnCode:number
+    quantity:number;
+    qtyUnit:string;
     cgstRate:0,
     sgstRate:0,
     igstRate:3,
