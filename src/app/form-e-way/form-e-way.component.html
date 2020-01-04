@@ -1,0 +1,336 @@
+
+<!-- <section class="topbar">
+  <div class="container">
+    <div class="row">
+      <div class="container">
+        <div class="row">
+           <div class="col-md-4">
+             
+           </div>
+          <div class="col-md-4">
+             <h2>E-way Bill System</h2>
+           </div>
+           <div class="col-md-4">
+
+           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<!-- gst section -->
+<section class="gst-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h3 class="txt-white">GSTIN-01234567</h3>
+      </div>
+      <div class="col-md-4">
+        <h3 class="txt-white">Company Name</h3>
+      </div>
+      <div class="col-md-4">
+        <h3 class="txt-white">User-Transport</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- gst section end -->
+
+<div class="container pt-5">
+  <div class="row">
+   <form width="100%" class="pay-form" [formGroup]="EwayForm" (validSubmit)="submit()">
+    <div class="row border-section">
+      <div class="heading col-12 pt-2 pb-2"> Transaction detail </div>
+      
+         
+        <div class="col-12">
+        	<p style="padding-right: 15px; float: left;" >Supply type</p>
+            <div class="form-check form-check-inline">
+            	
+              <input class="form-check-input" type="radio" id="inlineCheckbox1"  formControlName="supplyType"  [(ngModel)]="userModel.supplyType"  name="supplyType" value="O">
+              <label class="form-check-label" for="inlineCheckbox1">Outward</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio"  formControlName="supplyType"  required [(ngModel)]="userModel.supplyType"  name="supplyType" id="inlineCheckbox2" value="O">
+              <label class="form-check-label" for="inlineCheckbox2">Inward</label>
+            </div>
+        </div>
+        
+     
+      <div class="cleafix"> </div>
+        <div class="col-12 first-wrap form-center">
+        	<p style="float:left">Sub type</p>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" formControlName="subSupplyType"  [(ngModel)]="userModel.subSupplyType"  name="subSupplyType"  value="1">
+                <label class="form-check-label">Supply</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" formControlName="subSupplyType"  [(ngModel)]="userModel.subSupplyType"  name="subSupplyType"  value="1">
+                <label class="form-check-label">Export</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" formControlName="subSupplyType"  [(ngModel)]="userModel.subSupplyType"  name="subSupplyType"  value="1">
+                <label class="form-check-label">Job Work</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" formControlName="subSupplyType"  [(ngModel)]="userModel.subSupplyType"  name="subSupplyType"  value="skd/cdk/lots">
+                <label class="form-check-label">Skd/ckd/lots</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" formControlName="subSupplyType"  [(ngModel)]="userModel.subSupplyType"  name="subSupplyType"  value="recipient not show">
+                <label class="form-check-label">Recipient Not know</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" formControlName="subSupplyType"  [(ngModel)]="userModel.subSupplyType"  name="subSupplyType"  value="for own use">
+                <label class="form-check-label">For Own Use</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" formControlName="subSupplyType"  [(ngModel)]="userModel.subSupplyType"  name="subSupplyType"  value="exhibition or fairs">
+                <label class="form-check-label">Exhibition or fairs</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" formControlName="subSupplyType"  [(ngModel)]="userModel.subSupplyType"  name="subSupplyType"  value="line sale">
+                <label class="form-check-label">Line sale</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" formControlName="subSupplyType"  [(ngModel)]="userModel.subSupplyType"  name="subSupplyType"  value="other">
+                <label class="form-check-label">other</label>
+              </div>
+         
+        </div>
+        <div class="row first-wrap">
+          <div class="col-lg-3 ">
+             <select type="select"  class="form-control" formControlName="docType"  [(ngModel)]="userModel.docType"  name="docType" >
+                <option value="INV">Document Type</option>
+                <option value="INV">Saab</option>
+                <option value="INV">Fiat</option>
+                <option value="INV">Audi</option>
+              </select>
+          </div>
+            <div class="col-lg-3 ">
+                <!-- <label class="control-label">Document No.</label> -->
+            <input type="text" class="form-control" required formControlName="docNo"  [(ngModel)]="userModel.docNo"  name="docNo"  placeholder="Document Number">
+            <!-- <bfv-messages></bfv-messages> -->
+          </div>
+
+          <div class="col-lg-3 ">
+            <input type="date" class="form-control" formControlName="docDate"  [(ngModel)]="userModel.docDate"  name="docDate" placeholder="Document Date">
+          </div>
+   
+        </div>
+      </div>
+           <div class="row border-section "> 
+              <div class="heading col-12 pt-2 pb-2"> Bill form </div>
+              <div class="col-lg-6 pt-2 pb-2">
+                <input type="text" class="form-control" formControlName="fromTrdName"  [(ngModel)]="userModel.fromTrdName"  name="fromTrdName" placeholder="Trade Name" >
+              </div>
+              <div class=" col-lg-6 pt-2 pb-2">
+                <textarea rows="4" cols="50"  class="form-control" formControlName="fromAddr1"  [(ngModel)]="userModel.fromAddr1"  name="fromAddr1" placeholder="address">
+                </textarea>
+              </div>
+              <div class=" col-lg-6 pt-2 pb-2">
+                <input type="text" class="form-control" formControlName="fromGstin"  [(ngModel)]="userModel.fromGstin"  name="fromGstin"  placeholder="GSTIN">
+              </div>
+              <div class="col-lg-6 pt-2 pb-2">
+                <input type="text" class="form-control" formControlName="fromPlace"  [(ngModel)]="userModel.fromPlace"  name="fromPlace"  placeholder="place">
+              </div>
+              <div class="cleafix col-12">
+                ff
+              </div>
+               <div class=" col-lg-6 pt-2 pb-2">
+                  <select type="select"  class="form-control" formControlName="fromStateCode"  (change)="onChangeFromState($event.target.value)"  [(ngModel)]="userModel.fromStateCode"  name="fromStateCode" >
+                <option *ngFor="let state of stateData; let i=index" value={{state.state_code}}>{{state.state_name}}</option>
+            
+              </select>
+                <!-- <input type="text" class="form-control" formControlName="fromStateCode"  [(ngModel)]="userModel.fromStateCode"  name="fromStateCode"  placeholder="fromStateCode"> -->
+              </div>
+              <div class="col-lg-6 pt-2 pb-2">
+                <input type="number" class="form-control" formControlName="fromPincode"  [(ngModel)]="userModel.fromPincode"  name="fromPincode"  placeholder="Pincode">
+              </div>
+           </div>
+           <div class="row border-section">
+              <div class="heading col-12 pt-2 pb-2"> Bill To</div>
+              <div class="col-lg-6 pt-2 pb-2">
+                <input type="text" class="form-control"  formControlName="toTrdName"  [(ngModel)]="userModel.toTrdName"  name="toTrdName" placeholder="first name">
+              </div>
+              <div class=" col-lg-6 pt-2 pb-2">
+                <textarea rows="4" cols="50"   formControlName="toAddr1"  [(ngModel)]="userModel.toAddr1"  name="toAddr1" placeholder="address">
+                </textarea>
+              </div>
+              <div class=" col-lg-6 pt-2 pb-2">
+                <input type="text" class="form-control"   formControlName="toGstin"  [(ngModel)]="userModel.toGstin"  name="toGstin" placeholder="GSTIN">
+              </div>
+              <div class="col-lg-6 pt-2 pb-2">
+                <input type="text" class="form-control"  formControlName="toPlace"  [(ngModel)]="userModel.toPlace"  name="toPlace" placeholder="place">
+              </div>
+              <div class="cleafix col-12">
+                ff
+              </div>
+               <div class=" col-lg-6 pt-2 pb-2">
+                  <select type="select"  class="form-control" formControlName="toStateCode"  (change)="onChangeToState($event.target.value)" [(ngModel)]="userModel.toStateCode"  name="toStateCode" >
+                      <option *ngFor="let state of stateData; let i=index" value={{state.state_code}}>{{state.state_name}}</option>
+                  
+                    </select>
+                <!-- <input type="text" class="form-control"   formControlName="actToStateCode"  [(ngModel)]="userModel.actToStateCode"  name="actToStateCode" placeholder="state"> -->
+              </div>
+              <div class="col-lg-6 pt-2 pb-2">
+                <input type="number" class="form-control"   formControlName="toPincode"  [(ngModel)]="userModel.toPincode"  name="toPincode" placeholder="Pincode">
+              </div>
+           </div>
+             <div class="row item-detail border-section">
+             <div class="heading col-12 pt-2 pb-2">Item Detail </div>
+             <div class="col-lg-2 pt-2 pb-2">
+                <input type="text" class="form-control" formControlName="productName"  [(ngModel)]="userModel.itemList[0].productName"  name="productName"  placeholder="Product name">
+              </div>
+               <div class="col-lg-2 pt-2 pb-2">
+                <input type="text" class="form-control"  formControlName="productDesc"  [(ngModel)]="userModel.itemList[0].productDesc"  name="productDesc"  placeholder="Product Desciption">
+              </div>
+               <div class="col-lg-2 pt-2 pb-2">
+                <input type="number" class="form-control" formControlName="hsnCode"  [(ngModel)]="userModel.itemList[0].hsnCode"  name="hsnCode"  placeholder="HSN">
+              </div>
+               <div class="col-lg-2 pt-2 pb-2">
+                <input type="number" class="form-control"  formControlName="quantity"  [(ngModel)]="userModel.itemList[0].quantity"  name="quantity"  placeholder="Quantity">
+              </div>
+               <div class="col-lg-2 pt-2 pb-2">
+                <input type="text" class="form-control"   formControlName="qtyUnit"  [(ngModel)]="userModel.itemList[0].qtyUnit" name="qtyUnit" placeholder="Unit ">
+              </div>
+               <div class="col-lg-2 pt-2 pb-2">
+                <input type="text" class="form-control" formControlName="toPincode"  [(ngModel)]="userModel.itemList[0].toPincode"  name="toPincode"  placeholder="unit">
+               </div>
+               <div class="col-lg-2 pt-2 pb-2">
+          
+                <select  formControlName="cgstRate"  [(ngModel)]="userModel.itemList[0].cgstRate"  name="cgstRate"  >
+                <option value="0">GST+SGST Rate(%)</option>
+                <option value="0">Saab</option>
+                <option value="0">Fiat</option>
+                <option value="0">Audi</option>
+              </select>
+              </div>
+               <div class="col-lg-2 pt-2 pb-2">
+             
+                <select formControlName="igstRate"  [(ngModel)]="userModel.itemList[0].igstRate"  name="igstRate" >
+                <option value="3">iGST Rate(%)</option>
+                <option value="3">Saab</option>
+                <option value="3">Fiat</option>
+                <option value="3">Audi</option>
+              </select>
+              </div>
+              <div class="col-lg-2 pt-2 pb-2">
+                
+                <select formControlName="cessRate"  [(ngModel)]="userModel.itemList[0].cessRate"  name="cessRate"  >
+                <option value="0">cess advol Rate(%)</option>
+                <option value="0">Saab</option>
+                <option value="0">Fiat</option>
+                <option value="0">Audi</option>
+              </select>
+              </div>
+              <div class="col-lg-2 pt-2 pb-2">
+
+                <select  formControlName="cessNonAdvol"  [(ngModel)]="userModel.itemList[0].cessNonAdvol"  name="cessNonAdvol" >
+                <option value="0">cess not advol Rate(%)</option>
+                <option value="0">Saab</option>
+                <option value="0">Fiat</option>
+                <option value="0">Audi</option>
+              </select>
+              </div>
+               <div class="col-lg-2 pt-2 pb-2">
+                <input type="number" class="form-control" formControlName="taxableAmount"  [(ngModel)]="userModel.itemList[0].taxableAmount"  name="taxableAmount"  placeholder="taxable Amount">
+            
+              </div>
+              <div class="col-lg-2 pt-2 pb-2">
+              
+              </div>
+              <div class="col-lg-2 pt-2 pb-2">
+                <input type="number" class="form-control"  formControlName="sgstValue"  [(ngModel)]="userModel.sgstValue"  name="sgstValue"  placeholder="sgstValue">
+              </div>
+               <div class="col-lg-2 pt-2 pb-2">
+                <input type="number" class="form-control" formControlName="igstValue"  [(ngModel)]="userModel.igstValue"  name="igstValue"  placeholder="ISGST Amount">
+              </div>
+               <div class="col-lg-2 pt-2 pb-2">
+                <input type="number" class="form-control" formControlName="cessValue"  [(ngModel)]="userModel.cessValue"  name="cessValue"  placeholder="cessValue Amount">
+              </div>
+               <div class="col-lg-2 pt-2 pb-2">
+                <input type="number" class="form-control" formControlName="cessNonAdvolValue"  [(ngModel)]="userModel.cessNonAdvolValue"  name="cessNonAdvolValue" placeholder="cessNonAdvolValue Amount">
+              </div>
+               <div class="col-lg-2 pt-2 pb-2">
+                <input type="number" class="form-control" formControlName="totalValue"  [(ngModel)]="userModel.totalValue"  name="totalValue"  placeholder="totalValue Amount">
+              </div>
+              <div class="col-lg-2 pt-2 pb-2">
+                <input type="number" class="form-control" formControlName="otherValue"  [(ngModel)]="userModel.otherValue"  name="otherValue"  placeholder="otherValue Amount">
+              </div>
+              </div>
+
+              <div class="row transport-detail border-section">
+                <div class="heading col-12 pt-2 pb-2">Transport Detail </div>
+                <div class="cleafix col-lg-12">aa </div>
+                <div class="col-lg-4">
+                   <input type="text" class="form-control" formControlName="transporterName"  [(ngModel)]="userModel.transporterName"  name="transporterName" placeholder="transport-Name">
+                </div>
+                <div class="col-lg-4">
+                   <input type="text" class="form-control" formControlName="transporterId"  [(ngModel)]="userModel.transporterId"  name="transporterId" placeholder="transport-ID">
+                </div>
+                <div class="col-lg-4">
+                   <input type="text" class="form-control" formControlName="transDistance"  [(ngModel)]="userModel.transDistance"  name="transDistance" placeholder="Approx destance in km">
+                </div>
+              </div>
+            <div class="row form-b border-section">
+             	  <div class="heading col-12 pt-2 pb-2">Part B</div>
+             	  <div class="col-lg-6">
+             	  	<p>Trans. Mode</p>
+             	  	<div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio"  value="1" formControlName="transMode"  [(ngModel)]="userModel.transMode"  name="transMode">
+                <label class="form-check-label" >Road</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio"  value="1" formControlName="transMode"  [(ngModel)]="userModel.transMode"  name="transMode">
+                <label class="form-check-label" >Rail</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" value="1" formControlName="transMode"  [(ngModel)]="userModel.transMode"  name="transMode">
+                <label class="form-check-label" >Air</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" value="1" formControlName="transMode"  [(ngModel)]="userModel.transMode"  name="transMode">
+                <label class="form-check-label" >Ship</label>
+              </div>
+             	  </div>
+              <div class="col-lg-6">
+             	  	<p> Vehlcle Type </p>
+             	  	<div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" id="inlineCheckbox1" formControlName="vehicleType"  [(ngModel)]="userModel.vehicleType"  name="vehicleType" value="R">
+                <label class="form-check-label" for="inlineCheckbox1">Regular</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" id="inlineCheckbox1"  formControlName="vehicleType"  [(ngModel)]="userModel.vehicleType"  name="vehicleType"  value="R">
+                <label class="form-check-label" for="inlineCheckbox1">Over Dimensional Cargo</label>
+              </div>
+             	  </div>
+             	 <div class="col-lg-6 form-inline">
+             	 	<label>Vehicle No.</label>
+             	 	 <input type="text" class="form-control" minlength="7" formControlName="vehicleNo"  [(ngModel)]="userModel.vehicleNo"  name="vehicleNo" placeholder="VehicleNo">
+             	 </div>
+             	  <div class="col-lg-6 form-inline">
+             	 	<label>Transporter Doc. No & Date</label>
+             	 	 <input type="text" class="form-control" formControlName="transDocNo"  [(ngModel)]="userModel.transDocNo"  name="transDocNo" placeholder="transDocNo">
+             	 	 <input type="date" formControlName="transDocDate"  [(ngModel)]="userModel.transDocDate"  name="transDocDate" placeholder="transDocDate">
+                </div>
+            </div>
+            <p style="color:green">{{successMessage}}</p>
+            <p style="color:red">{{errorMesssage}}</p>
+             	<div class="col-12 pt-5 btn-grop">
+             		<a href="#" class="btn btn-primary">
+             			preview 
+                 </a>
+                 <!-- [disabled]="!EwayForm.valid" -->
+             		<button class="btn btn-primary" type="submit" >Submit</button>
+             		<a href="#" class="btn btn-danger">exit</a>
+             	</div>
+             		
+             	
+          </form>  
+          
+</div>
+</div>
+

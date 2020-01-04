@@ -1,0 +1,79 @@
+#bill-system{
+
+    
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Nunito', sans-serif;
+}
+   p {
+    line-height: 1.9;
+    color: #666666;
+    margin-bottom: 15px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 15px;
+}
+a:hover {
+    text-decoration: none !important;
+}
+.text-white {
+    color: #fff;
+}
+section.topbar {
+    background: linear-gradient(to right, rgba(179,220,237,1) 0%, rgba(41,184,229,1) 50%, rgba(188,224,238,1) 100%);
+    color: #fff;
+    padding: 25px;
+}
+h3.top-heading {
+    text-align: center;
+    background-color: #333;
+    color: #fff;
+    font-size: 17px;
+    padding: 15px 15px;
+}
+h4.section-heading {
+    background-color: #5fc7e8;
+    color: #fff;
+    padding: 10px 5px;
+}
+ul.form-detail li {
+    list-style-type: none;
+    text-align: left;
+    font-size: 15px;
+}
+.row.bg-black {
+    background-color: #333;
+    color: #fff;
+    padding: 25px 0px;
+}
+.from-wrapper {
+    background-color: #333;
+    color: #fff;
+    padding: 25px 15px;
+}
+.from-wrapper p {
+    color: #fff;
+}
+section.address-form {
+    margin: 15px 0px;
+}
+.from-wrapper h5 {
+    background-color: #5fc7e8;
+    padding: 5px 5px;
+}
+ul.inline-box {
+    display: inline-flex;
+    text-decoration: none;
+    list-style-type: none;
+    font-size: 15px;
+}
+ul.list-inline li {
+    display: inline-flex;
+    margin: 15px;
+}
+textarea {
+    width: 100%;
+    HEIGHT: 250px;
+    background-color: #333;
+    color: #fff;
+}
+
+}
