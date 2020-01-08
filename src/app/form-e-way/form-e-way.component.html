@@ -102,6 +102,7 @@
         </div>
         <div class="row first-wrap">
           <div class="col-lg-3 ">
+            <p>Document type</p>
              <select type="select"  class="form-control" formControlName="docType"  [(ngModel)]="userModel.docType"  name="docType" >
                 <option value="INV">Document Type</option>
                 <option value="INV">Saab</option>
@@ -110,14 +111,23 @@
               </select>
           </div>
             <div class="col-lg-3 ">
+              <p>Document No</p>
                 <!-- <label class="control-label">Document No.</label> -->
             <input type="text" class="form-control" required formControlName="docNo"  [(ngModel)]="userModel.docNo"  name="docNo"  placeholder="Document Number">
+             
             <!-- <bfv-messages></bfv-messages> -->
           </div>
 
           <div class="col-lg-3 ">
+            <p>Document Date</p>
             <input type="date" class="form-control" formControlName="docDate"  [(ngModel)]="userModel.docDate"  name="docDate" placeholder="Document Date">
           </div>
+
+          <div class="col-lg-3 ">
+            <p>Transaction type</p>
+            <input type="date" class="form-control" formControlName="docDate"  [(ngModel)]="userModel.docDate"  name="docDate" placeholder="Document Date">
+          </div>
+         
    
         </div>
       </div>
@@ -133,6 +143,8 @@
               <div class=" col-lg-6 pt-2 pb-2">
                 <input type="text" class="form-control" formControlName="fromGstin"  [(ngModel)]="userModel.fromGstin"  name="fromGstin"  placeholder="GSTIN">
               </div>
+               
+
               <div class="col-lg-6 pt-2 pb-2">
                 <input type="text" class="form-control" formControlName="fromPlace"  [(ngModel)]="userModel.fromPlace"  name="fromPlace"  placeholder="place">
               </div>
@@ -181,43 +193,50 @@
            </div>
              <div class="row item-detail border-section">
              <div class="heading col-12 pt-2 pb-2">Item Detail </div>
-             <div class="col-lg-2 pt-2 pb-2">
+             <div class="col-lg-2 pt-1 pb-1 line-one">
                 <input type="text" class="form-control" formControlName="productName"  [(ngModel)]="userModel.itemList[0].productName"  name="productName"  placeholder="Product name">
               </div>
-               <div class="col-lg-2 pt-2 pb-2">
+              
+               <div class="col-lg-2 pt-1 pb-1 line-two">
                 <input type="text" class="form-control"  formControlName="productDesc"  [(ngModel)]="userModel.itemList[0].productDesc"  name="productDesc"  placeholder="Product Desciption">
               </div>
-               <div class="col-lg-2 pt-2 pb-2">
+               <div class="col-lg-1 pt-1 pb-1 line-three">
                 <input type="number" class="form-control" formControlName="hsnCode"  [(ngModel)]="userModel.itemList[0].hsnCode"  name="hsnCode"  placeholder="HSN">
               </div>
-               <div class="col-lg-2 pt-2 pb-2">
+               <div class="col-lg-1 pt-1 pb-1 line-four">
                 <input type="number" class="form-control"  formControlName="quantity"  [(ngModel)]="userModel.itemList[0].quantity"  name="quantity"  placeholder="Quantity">
               </div>
-               <div class="col-lg-2 pt-2 pb-2">
+               <div class="col-lg-1 pt-1 pb-1 line-five">
                 <input type="text" class="form-control"   formControlName="qtyUnit"  [(ngModel)]="userModel.itemList[0].qtyUnit" name="qtyUnit" placeholder="Unit ">
               </div>
-               <div class="col-lg-2 pt-2 pb-2">
+               
+              <div class="col-lg-2 pt-1 pb-1 line-six">
+                <input type="text" class="form-control"   formControlName="qtyUnit"  [(ngModel)]="userModel.itemList[0].qtyUnit" name="qtyUnit" placeholder="Value/Taxable Value (Rs.)">
+              </div>
+               <div class="col-lg- pt- pb-">
                 <!-- <input type="text" class="form-control" formControlName="toPincode"  [(ngModel)]="userModel.itemList[0].toPincode"  name="toPincode"  placeholder="unit"> -->
                </div>
-               <div class="col-lg-2 pt-2 pb-2">
-          
-                <select  formControlName="cgstRate"  [(ngModel)]="userModel.itemList[0].cgstRate"  name="cgstRate"  >
+               <div class="col-lg- pt-1 pb-1 work1">
+               
+                <select  formControlName="cgstRate"  [(ngModel)]="userModel.itemList[0].cgstRate"  name="cgstRate" style="width: 135px;"  >
                 <option value="0">GST+SGST Rate(%)</option>
                 <option value="0">Saab</option>
                 <option value="0">Fiat</option>
                 <option value="0">Audi</option>
+            
               </select>
               </div>
-               <div class="col-lg-2 pt-2 pb-2">
-             
+               <div class="col-lg- pt-1 pb-1">
+                <div class="work2">
                 <select formControlName="igstRate"  [(ngModel)]="userModel.itemList[0].igstRate"  name="igstRate" >
                 <option value="3">iGST Rate(%)</option>
                 <option value="3">Saab</option>
                 <option value="3">Fiat</option>
                 <option value="3">Audi</option>
               </select>
+            </div>
               </div>
-              <div class="col-lg-2 pt-2 pb-2">
+              <div class="col-lg-1 pt-1 pb-1 work3">
                 
                 <select formControlName="cessRate"  [(ngModel)]="userModel.itemList[0].cessRate"  name="cessRate"  >
                 <option value="0">cess advol Rate(%)</option>
@@ -226,7 +245,7 @@
                 <option value="0">Audi</option>
               </select>
               </div>
-              <div class="col-lg-2 pt-2 pb-2">
+              <div class="col-lg-1 pt-1 pb-1 work3">
 
                 <select  formControlName="cessNonAdvol"  [(ngModel)]="userModel.itemList[0].cessNonAdvol"  name="cessNonAdvol" >
                 <option value="0">cess not advol Rate(%)</option>
@@ -235,6 +254,9 @@
                 <option value="0">Audi</option>
               </select>
               </div>
+              <div class="col-lg- pt- pb-">
+                <!-- <input type="text" class="form-control" formControlName="toPincode"  [(ngModel)]="userModel.itemList[0].toPincode"  name="toPincode"  placeholder="unit"> -->
+               </div>
                <div class="col-lg-2 pt-2 pb-2">
                 <input type="number" class="form-control" formControlName="taxableAmount"  [(ngModel)]="userModel.itemList[0].taxableAmount"  name="taxableAmount"  placeholder="taxable Amount">
             
