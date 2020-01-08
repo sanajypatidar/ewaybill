@@ -17,7 +17,7 @@ import { from } from 'rxjs';
   styleUrls: ['./form-e-way.component.scss']
 })
 export class FormEWayComponent implements OnInit {
-  ewaybillData: Ewaybilldata = new Ewaybilldata;
+  userModel: Ewaybilldata = new Ewaybilldata;
 
   EwayForm:FormGroup;
   public submitResponse:any;
@@ -212,21 +212,17 @@ export class FormEWayComponent implements OnInit {
     
   ]
   public number:number;
-  userModel={supplyType:"O",subSupplyType:"1",subSupplyDesc:"", docType:"", docDate:"", fromGstin:"", fromTrdName:"",fromAddr1:"",
-  fromAddr2:"GROUND FLOOR OSBORNE ROAD",fromPlace:"", fromPincode:this.number,actFromStateCode:this.number, fromStateCode:this.number, toGstin:"", toAddr1:""
-  ,toAddr2:"Dasarahosahalli", toPlace:"", toPincode:this.number, actToStateCode:this.number, toStateCode:this.number, transactionType:4, 
-  dispatchFromGSTIN:"29AAAAA1303P1ZV", dispatchFromTradeName:"ABC Traders", shipToGSTIN:"29ALSPR1722R1Z3",shipToTradeName:"XYZ Traders",  otherValue:this.number, totalValue:this.number,cgstValue:0,
-  sgstValue:0, igstValue:this.number,cessValue:this.number,cessNonAdvolValue:this.number, totInvValue:68358, 
- transDocNo:"", transMode:"", transDistance:"",transDocDate:"", vehicleNo:""  , vehicleType:"",itemList:[{
-    productName:"",productDesc:"", hsnCode:this.number, quantity:this.number, qtyUnit:"",cgstRate:this.number,sgstRate:0,igstRate:this.number,cessRate:this.number,cessNonAdvol:this.number,taxableAmount:this.number        
-  }]
-
-    
- 
- 
+//   userModel={supplyType:"O",subSupplyType:"1",subSupplyDesc:"", docType:"", docDate:"", fromGstin:"", fromTrdName:"",fromAddr1:"",
+//   fromAddr2:"GROUND FLOOR OSBORNE ROAD",fromPlace:"", fromPincode:this.number,actFromStateCode:this.number, fromStateCode:this.number, toGstin:"", toAddr1:""
+//   ,toAddr2:"Dasarahosahalli", toPlace:"", toPincode:this.number, actToStateCode:this.number, toStateCode:this.number, transactionType:4, 
+//   dispatchFromGSTIN:"29AAAAA1303P1ZV", dispatchFromTradeName:"ABC Traders", shipToGSTIN:"29ALSPR1722R1Z3",shipToTradeName:"XYZ Traders",  otherValue:this.number, totalValue:this.number,cgstValue:0,
+//   sgstValue:0, igstValue:this.number,cessValue:this.number,cessNonAdvolValue:this.number, totInvValue:68358, 
+//  transDocNo:"", transMode:"", transDistance:"",transDocDate:"", vehicleNo:""  , vehicleType:"",itemList:[{
+//     productName:"",productDesc:"", hsnCode:this.number, quantity:this.number, qtyUnit:"",cgstRate:this.number,sgstRate:0,igstRate:this.number,cessRate:this.number,cessNonAdvol:this.number,taxableAmount:this.number        
+//   }]
+// }
 
 
-}
 customErrorMessages: ErrorMessage[] = [
   {
     error: 'required',
@@ -239,13 +235,71 @@ customErrorMessages: ErrorMessage[] = [
   constructor(private myservice:MyService, private fb: FormBuilder, private router:Router) { }
 
   ngOnInit() {
+    this.userModel={
+      "supplyType":"O",
+      "subSupplyType":"1",
+      "subSupplyDesc":" ",
+      "docType":"INV",
+      "docNo":"111-3150",
+      "docDate":"15/12/2017",
+      "fromGstin":"29AACCH2364P1Z3",
+      "fromTrdName":"welton",
+      "fromAddr1":"2ND CROSS NO 59  19  A",
+      "fromAddr2":"GROUND FLOOR OSBORNE ROAD",
+      "fromPlace":"FRAZER TOWN",
+      "fromPincode":263652,
+      "actFromStateCode":5,
+      "fromStateCode":5,
+      "toGstin":"02EHFPS5910D2Z0",
+      "toTrdName":"sthuthya",
+      "toAddr1":"Shree Nilaya",
+      "toAddr2":"Dasarahosahalli",
+      "toPlace":"Beml Nagar",
+      "toPincode":176036,
+      "actToStateCode":2,
+      "toStateCode":2,
+      "transactionType":4,
+      "dispatchFromGSTIN":"29AAAAA1303P1ZV",
+      "dispatchFromTradeName":"ABC Traders",
+      "shipToGSTIN":"29ALSPR1722R1Z3",
+      "shipToTradeName":"XYZ Traders",
+      "otherValue": -100,
+      "totalValue":56099,
+      "cgstValue":0,
+      "sgstValue":0,
+      "igstValue":300.67,
+      "cessValue":400.56,
+      "cessNonAdvolValue":400,
+      "totInvValue":68358,
+      "transporterId":"05AAACH6188F1ZM",
+      "transporterName":"",
+      "transDocNo":"",
+      "transMode":"1",
+      "transDistance":"656",
+      "transDocDate":"",
+      "vehicleNo":"PVC1234",
+      "vehicleType":"R",
+      "itemList":[{
+      "productName":"Wheat",
+      "productDesc":"Wheat",
+      "hsnCode":1001,
+      "quantity":4,
+      "qtyUnit":"BOX",
+      "cgstRate":0,
+      "sgstRate":0,
+      "igstRate":3,
+      "cessRate":0,
+      "cessNonAdvol":0,
+      "taxableAmount":5609
+      }]
+      }
    
     this.createForm()
     this.myservice.first().subscribe(res=>{
       console.log("success")
       console.log(res)
     
-    })
+    });
   
 
 
@@ -271,6 +325,9 @@ customErrorMessages: ErrorMessage[] = [
           ]),
           docNo:new FormControl('', [
             Validators.required,
+            Validators.pattern("^[0-9-]*$"),
+
+
           ]),
           docDate: new FormControl('', [
             Validators.required
@@ -283,6 +340,7 @@ customErrorMessages: ErrorMessage[] = [
           ]),
           fromAddr1: new FormControl('', [
             Validators.required,
+            Validators.minLength(6)
           ]),
           // fromAddr2:new FormControl('', [
           //   Validators.required,
@@ -427,9 +485,7 @@ customErrorMessages: ErrorMessage[] = [
             Validators.required,
           ]),
     
-
-      
-      })
+});
 
     // this.EwayForm = this.fb.group({
     //   supplyType: ['',Validators.required],
@@ -493,67 +549,68 @@ customErrorMessages: ErrorMessage[] = [
   }
 
   submit(){
+           console.log(this.userModel,"desssssssssssssss") 
 
     console.log(this.stateData[0].state_code+this.stateData[0].state_code)
 
-   var obj={
-    "supplyType":"O",
-    "subSupplyType":"1",
-    "subSupplyDesc":" ",
-    "docType":"INV",
-    "docNo":"111-3150",
-    "docDate":"15/12/2017",
-    "fromGstin":"29AACCH2364P1Z3",
-    "fromTrdName":"welton",
-    "fromAddr1":"2ND CROSS NO 59  19  A",
-    "fromAddr2":"GROUND FLOOR OSBORNE ROAD",
-    "fromPlace":"FRAZER TOWN",
-    "fromPincode":263652,
-    "actFromStateCode":5,
-    "fromStateCode":5,
-    "toGstin":"02EHFPS5910D2Z0",
-    "toTrdName":"sthuthya",
-    "toAddr1":"Shree Nilaya",
-    "toAddr2":"Dasarahosahalli",
-    "toPlace":"Beml Nagar",
-    "toPincode":176036,
-    "actToStateCode":2,
-    "toStateCode":2,
-    "transactionType":4,
-    "dispatchFromGSTIN":"29AAAAA1303P1ZV",
-    "dispatchFromTradeName":"ABC Traders",
-    "shipToGSTIN":"29ALSPR1722R1Z3",
-    "shipToTradeName":"XYZ Traders",
-    "otherValue": -100,
-    "totalValue":56099,
-    "cgstValue":0,
-    "sgstValue":0,
-    "igstValue":300.67,
-    "cessValue":400.56,
-    "cessNonAdvolValue":400,
-    "totInvValue":68358,
-    "transporterId":"05AAACH6188F1ZM",
-    "transporterName":"",
-    "transDocNo":"",
-    "transMode":"1",
-    "transDistance":"656",
-    "transDocDate":"",
-    "vehicleNo":"PVC1234",
-    "vehicleType":"R",
-    "itemList":[{
-    "productName":"Wheat",
-    "productDesc":"Wheat",
-    "hsnCode":1001,
-    "quantity":4,
-    "qtyUnit":"BOX",
-    "cgstRate":0,
-    "sgstRate":0,
-    "igstRate":3,
-    "cessRate":0,
-    "cessNonAdvol":0,
-    "taxableAmount":5609
-    }]
-    }
+  //  var obj={
+  //   "supplyType":"O",
+  //   "subSupplyType":"1",
+  //   "subSupplyDesc":" ",
+  //   "docType":"INV",
+  //   "docNo":"111-3150",
+  //   "docDate":"15/12/2017",
+  //   "fromGstin":"29AACCH2364P1Z3",
+  //   "fromTrdName":"welton",
+  //   "fromAddr1":"2ND CROSS NO 59  19  A",
+  //   "fromAddr2":"GROUND FLOOR OSBORNE ROAD",
+  //   "fromPlace":"FRAZER TOWN",
+  //   "fromPincode":263652,
+  //   "actFromStateCode":5,
+  //   "fromStateCode":5,
+  //   "toGstin":"02EHFPS5910D2Z0",
+  //   "toTrdName":"sthuthya",
+  //   "toAddr1":"Shree Nilaya",
+  //   "toAddr2":"Dasarahosahalli",
+  //   "toPlace":"Beml Nagar",
+  //   "toPincode":176036,
+  //   "actToStateCode":2,
+  //   "toStateCode":2,
+  //   "transactionType":4,
+  //   "dispatchFromGSTIN":"29AAAAA1303P1ZV",
+  //   "dispatchFromTradeName":"ABC Traders",
+  //   "shipToGSTIN":"29ALSPR1722R1Z3",
+  //   "shipToTradeName":"XYZ Traders",
+  //   "otherValue": -100,
+  //   "totalValue":56099,
+  //   "cgstValue":0,
+  //   "sgstValue":0,
+  //   "igstValue":300.67,
+  //   "cessValue":400.56,
+  //   "cessNonAdvolValue":400,
+  //   "totInvValue":68358,
+  //   "transporterId":"05AAACH6188F1ZM",
+  //   "transporterName":"",
+  //   "transDocNo":"",
+  //   "transMode":"1",
+  //   "transDistance":"656",
+  //   "transDocDate":"",
+  //   "vehicleNo":"PVC1234",
+  //   "vehicleType":"R",
+  //   "itemList":[{
+  //   "productName":"Wheat",
+  //   "productDesc":"Wheat",
+  //   "hsnCode":1001,
+  //   "quantity":4,
+  //   "qtyUnit":"BOX",
+  //   "cgstRate":0,
+  //   "sgstRate":0,
+  //   "igstRate":3,
+  //   "cessRate":0,
+  //   "cessNonAdvol":0,
+  //   "taxableAmount":5609
+  //   }]
+  //   }
     console.log(this.userModel)
     this.myservice.submit1(this.userModel)
     .subscribe(res=>{
